@@ -5,7 +5,8 @@ return {
       'nvim-lua/plenary.nvim',         -- Required dependency
       -- Suggested dependencies (optional)
       { 'BurntSushi/ripgrep' },           -- Required for live_grep and grep_string
-      { 'nvim-telescope/telescope-fzf-native.nvim' }
+      { 'nvim-telescope/telescope-fzf-native.nvim' },
+      { 'sharkdp/fd'}
     },
     tag = '0.1.8',
     config = function()
