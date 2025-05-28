@@ -18,4 +18,4 @@ vim.opt.relativenumber = true
 --   end,
 -- })
 
-vim.keymap.set("n", "<C-e>", "<cmd>Oil .<CR>")
+vim.keymap.set("n", "<C-e>", "<cmd>Oil<CR>")
