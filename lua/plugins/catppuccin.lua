@@ -1,10 +1,10 @@
 return {
-  "catppuccin/nvim",
+  "sainnhe/sonokai",
   lazy = false,
-  name = "catppucin",
+  name = "sonokai",
   priority = 1000,
   config = function()
-    vim.cmd.colorscheme "catppuccin"
+    vim.cmd.colorscheme "sonokai"
   end
 }
 

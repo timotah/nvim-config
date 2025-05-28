@@ -12,11 +12,12 @@
 - [ ] configure some adjustments to command line autocomplete: removing type declarations in it, autocomplete keymaps
 - [x] border window for the command line also
 - [ ] configuring dashboard a bit better for some general telescope finder options or go right to oil
-- [ ] choosing between ts_ls and eslint
+- [x] choosing between ts_ls and eslint - **chose ts_ls**
 - [ ] simplify your lsp configuration to your own tools, can still use telescope if you want
 - [x] adding lazydev to get completion on the vim global api
-- [ ] installing angular html css lsps and treesitter maybe some angular snippets too for control flow
+- [x] installing angular html css lsps and treesitter maybe some angular snippets too for control flow
 - [ ] installing json and yaml lsps and treesitter
 - [ ] change to fzf lua
 - [ ] adding a more custom startup window for the dashboard
 - [ ] checkout trouble.nvim
+- [ ] look at treesitter incremental selection and what it is

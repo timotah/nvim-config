@@ -45,3 +45,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.buf.code_action, { buffer = ev.buf, desc = 'Lsp: code_action' })
   end,
 })
+
+-- adding hover borders for lsps
+vim.o.winborder = 'rounded'
