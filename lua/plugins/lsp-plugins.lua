@@ -1,22 +1,22 @@
 return {
   {
-    "williamboman/mason.nvim",
-    lazy = false,
-    config = function()
-      require("mason").setup()
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = false,
+    "mason-org/mason-lspconfig.nvim",
+    -- lazy = false,
     opts = {
-      auto_install = true,
-      ensure_installed = { "lua_ls", "ts_ls" },
+      ensure_installed = { "lua_ls", "ts_ls", "angularls@17.3.2", "html", "cssls", "pyright" },
+      automatic_enable = false,
+      automatic_installation = true,
     },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    lazy = false,
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+      {
+        "jay-babu/mason-null-ls.nvim",
+        opts = {
+          ensure_installed = { "stylua", "prettier", "black" },
+        },
+      },
+    },
   },
   {
     "folke/lazydev.nvim",
