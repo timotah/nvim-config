@@ -3,7 +3,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     -- lazy = false,
     opts = {
-      ensure_installed = { "lua_ls", "ts_ls", "angularls@17.3.2", "html", "cssls", "pyright" },
+      ensure_installed = { "lua_ls", "ts_ls", "angularls@17.3.1", "html", "cssls", "pyright" },
       automatic_enable = false,
       automatic_installation = true,
     },

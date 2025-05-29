@@ -3,17 +3,16 @@
 - [x] configuring diagnostics a bit more, maybe use virtual lines
 - [ ] shortcut for all diagnostic errors, some sort of bottom error line
 - [ ] learn about the quickfixes interface
-- [ ] configure more of telescope functionality for gd, gr, gt
-- [ ] learning oil nvim better
+- [x] learning oil nvim better
 - [ ] markdown plugin
 - [ ] configuring codecompanion with my copilot token
 - [ ] configuring inline copilot token suggestions
 - [x] autocomplete suggestions for the command line as well
 - [ ] configure some adjustments to command line autocomplete: removing type declarations in it, autocomplete keymaps
 - [x] border window for the command line also
-- [ ] configuring dashboard a bit better for some general telescope finder options or go right to oil
+- [x] configuring dashboard a bit better for some general telescope finder options or go right to oil
 - [x] choosing between ts_ls and eslint - **chose ts_ls**
-- [ ] simplify your lsp configuration to your own tools, can still use telescope if you want
+- [x] simplify your lsp configuration to your own tools, can still use telescope if you want
 - [x] adding lazydev to get completion on the vim global api
 - [x] installing angular html css lsps and treesitter maybe some angular snippets too for control flow
 - [ ] installing json and yaml lsps and treesitter
@@ -21,3 +20,7 @@
 - [ ] adding a more custom startup window for the dashboard
 - [ ] checkout trouble.nvim
 - [ ] look at treesitter incremental selection and what it is
+- [ ] angularls needs to have forceStrictTemplate enabled and somehow use vim.lsp.config or the angular.ls for it, do it in the angularls file, may just have to debug at the lsp level for the configuration change 
+- [ ] nerdfont
+- [ ] change definition operations off of telescope to native nvim
+- [ ] prettier lualine

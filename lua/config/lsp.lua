@@ -1,5 +1,5 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-vim.lsp.config('*', {
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+vim.lsp.config("*", {
   capabilities = capabilities,
 })
 vim.lsp.enable({
@@ -13,38 +13,44 @@ vim.lsp.enable({
   "html",
   -- css
   "cssls",
-  -- python 
-  "pyright"
+  -- python
+  "pyright",
 })
+
+-- get the angular config
+-- local angular_cfg = vim.lsp.config.angularls;
+-- local new_cfg = vim.tbl_extend(angular_cfg.commands, {"--forceStrictTemplates"})
+-- vim.lsp.config('angularls', {
+--   cmd = new_cfg
+-- })
+
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
     local map = function(keys, func, desc)
-      vim.keymap.set('n', keys, func, { buffer = ev.buf, desc = 'Lsp: ' .. desc })
+      vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = "Lsp: " .. desc })
     end
 
     local tele = require("telescope.builtin")
-    map('gd', tele.lsp_definitions, 'Goto Definition')
-    map('<leader>fs', tele.lsp_document_symbols, 'Doc Symbols')
-    map('<leader>fS', tele.lsp_dynamic_workspace_symbols, 'Dynamic Symbols')
-    map('<leader>ft', tele.lsp_type_definitions, 'Goto Type')
+    map("gd", tele.lsp_definitions, "Goto Definition")
+    map("<leader>fs", tele.lsp_document_symbols, "Doc Symbols")
+    map("<leader>fS", tele.lsp_dynamic_workspace_symbols, "Dynamic Symbols")
+    map("<leader>ft", tele.lsp_type_definitions, "Goto Type")
     -- map('<leader>fr', tele.lsp_references, 'Goto References')
-    map('<leader>fi', tele.lsp_implementations, 'Goto Impl')
+    map("<leader>fi", tele.lsp_implementations, "Goto Impl")
 
-    map('K', vim.lsp.buf.hover, 'hover')
-    map('<leader>E', vim.diagnostic.open_float, 'diagnostic')
-    map('<leader>k', vim.lsp.buf.signature_help, 'sig help')
-    map('<leader>rn', vim.lsp.buf.rename, 'rename')
-    map('<leader>ca', vim.lsp.buf.code_action, 'code action')
-    map('<leader>wf', vim.lsp.buf.format, 'format')
+    map("K", vim.lsp.buf.hover, "hover")
+    map("<leader>E", vim.diagnostic.open_float, "diagnostic")
+    map("<leader>k", vim.lsp.buf.signature_help, "sig help")
+    map("<leader>rn", vim.lsp.buf.rename, "rename")
+    map("<leader>ca", vim.lsp.buf.code_action, "code action")
+    map("<leader>wf", vim.lsp.buf.format, "format")
 
-    vim.keymap.set('v',
-      '<leader>ca',
-      vim.lsp.buf.code_action, { buffer = ev.buf, desc = 'Lsp: code_action' })
+    vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "Lsp: code_action" })
   end,
 })
 
 -- adding hover borders for lsps
-vim.o.winborder = 'rounded'
+vim.o.winborder = "rounded"
