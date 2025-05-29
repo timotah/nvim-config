@@ -24,3 +24,6 @@
 - [ ] nerdfont
 - [ ] change definition operations off of telescope to native nvim
 - [ ] prettier lualine
+- [ ] organize completion for snippets vs lsp stuff
+- [ ] allow for typescript to get js snippets
+- [ ] adding codecompanion
