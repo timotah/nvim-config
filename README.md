@@ -1,12 +1,9 @@
 # Things to still do
 
 - [x] configuring diagnostics a bit more, maybe use virtual lines
-- [ ] shortcut for all diagnostic errors, some sort of bottom error line
 - [ ] learn about the quickfixes interface
 - [x] learning oil nvim better
 - [ ] markdown plugin
-- [ ] configuring codecompanion with my copilot token
-- [ ] configuring inline copilot token suggestions
 - [x] autocomplete suggestions for the command line as well
 - [ ] configure some adjustments to command line autocomplete: removing type declarations in it, autocomplete keymaps
 - [x] border window for the command line also
@@ -20,10 +17,17 @@
 - [ ] adding a more custom startup window for the dashboard
 - [ ] checkout trouble.nvim
 - [ ] look at treesitter incremental selection and what it is
-- [ ] angularls needs to have forceStrictTemplate enabled and somehow use vim.lsp.config or the angular.ls for it, do it in the angularls file, may just have to debug at the lsp level for the configuration change 
 - [ ] nerdfont
-- [ ] change definition operations off of telescope to native nvim
 - [ ] prettier lualine
+
+# Things that must be done before using in work
+
+
+- [ ] change definition operations off of telescope to native nvim
+- [ ] learn to control mutliple windows in neovim at once
+- [ ] angularls needs to have forceStrictTemplate enabled and somehow use vim.lsp.config or the angular.ls for it, do it in the angularls file, may just have to debug at the lsp level for the configuration change 
+- [ ] configuring codecompanion with my copilot token
+- [ ] configuring inline copilot token suggestions
 - [ ] organize completion for snippets vs lsp stuff
 - [ ] allow for typescript to get js snippets
-- [ ] adding codecompanion
+- [ ] shortcut for all diagnostic errors, some sort of bottom error line
