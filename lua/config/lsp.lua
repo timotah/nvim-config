@@ -41,7 +41,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- map('<leader>fr', tele.lsp_references, 'Goto References')
     map("<leader>fi", tele.lsp_implementations, "Goto Impl")
 
-    map("K", vim.lsp.buf.hover, "hover")
+    map("K", function ()
+      vim.lsp.buf.hover({border = "rounded"})
+    end,"hover documenation")
     map("<leader>E", vim.diagnostic.open_float, "diagnostic")
     map("<leader>k", vim.lsp.buf.signature_help, "sig help")
     map("<leader>rn", vim.lsp.buf.rename, "rename")
@@ -52,5 +54,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- adding hover borders for lsps
-vim.o.winborder = "rounded"
+-- adding hover borders for lsps, not doing it right now because of telescope weird borders
+-- vim.o.winborder = "rounded"
