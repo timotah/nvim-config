@@ -17,18 +17,11 @@ vim.lsp.enable({
   "pyright",
 })
 
--- get the angular config
--- local angular_cfg = vim.lsp.config.angularls;
--- local new_cfg = vim.tbl_extend(angular_cfg.commands, {"--forceStrictTemplates"})
--- vim.lsp.config('angularls', {
---   cmd = new_cfg
--- })
-
-local config_copy = vim.deepcopy(vim.lsp.config['angularls'])
+local config_copy = vim.deepcopy(vim.lsp.config["angularls"])
 local cmd_copy = config_copy.cmd --[[@as string[] ]]
-local new_cfg = vim.list_extend(cmd_copy, {'--forceStrictTemplates'})
-vim.lsp.config('angularls', {
-  cmd=new_cfg
+local new_cfg = vim.list_extend(cmd_copy, { "--forceStrictTemplates" })
+vim.lsp.config("angularls", {
+  cmd = new_cfg,
 })
 
 -- Use LspAttach autocommand to only map the following keys
@@ -48,9 +41,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- map('<leader>fr', tele.lsp_references, 'Goto References')
     map("<leader>fi", tele.lsp_implementations, "Goto Impl")
 
-    map("K", function ()
-      vim.lsp.buf.hover({border = "rounded"})
-    end,"hover documenation")
+    map("K", function()
+      vim.lsp.buf.hover({ border = "rounded" })
+    end, "hover documenation")
     map("<leader>E", vim.diagnostic.open_float, "diagnostic")
     map("<leader>k", vim.lsp.buf.signature_help, "sig help")
     map("<leader>rn", vim.lsp.buf.rename, "rename")
