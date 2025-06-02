@@ -6,4 +6,5 @@ require("config.editor-options")
 require("config.lsp")
 -- all diagnostic logic here
 require("config.diagnostics")
+
 require("config.completions")

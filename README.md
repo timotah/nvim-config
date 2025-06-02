@@ -24,8 +24,8 @@
 
 
 - [ ] change definition operations off of telescope to native nvim
-- [ ] learn to control mutliple windows in neovim at once
-- [ ] angularls needs to have forceStrictTemplate enabled and somehow use vim.lsp.config or the angular.ls for it, do it in the angularls file, may just have to debug at the lsp level for the configuration change 
+- [x] learn to control mutliple windows in neovim at once
+- [x] angularls needs to have forceStrictTemplate enabled and somehow use vim.lsp.config or the angular.ls for it, do it in the angularls file, may just have to debug at the lsp level for the configuration change 
 - [ ] configuring codecompanion with my copilot token
 - [ ] configuring inline copilot token suggestions
 - [ ] organize completion for snippets vs lsp stuff
