@@ -19,19 +19,20 @@
 - [ ] look at treesitter incremental selection and what it is
 - [ ] nerdfont
 - [ ] prettier lualine
-- [ ] adding the html lsp to the htmlangular filetype
+- [x] adding the html lsp to the htmlangular filetype
+- [ ] adding emmet abbreviation ability in html and angularhtml
 - [ ] getting harpoon and maybe prettify the tabs a bit more
 - [ ] getting the header of the functions to stick on scrolling, will help with symbol search
 - [x] removing the autopairs extension
 
 # Things that must be done before using in work
 
-- [ ] learning a bit more about tmux, and the scrolling, maybe using vim motinos within it 
+- [ ] learning a bit more about tmux, and the scrolling, maybe using vim motinos within it
 - [x] change definition operations off of telescope to native nvim
 - [x] learn to control mutliple windows in neovim at once
-- [x] angularls needs to have forceStrictTemplate enabled and somehow use vim.lsp.config or the angular.ls for it, do it in the angularls file, may just have to debug at the lsp level for the configuration change 
+- [x] angularls needs to have forceStrictTemplate enabled and somehow use vim.lsp.config or the angular.ls for it, do it in the angularls file, may just have to debug at the lsp level for the configuration change
 - [ ] configuring codecompanion with my copilot token
 - [ ] configuring inline copilot token suggestions
 - [ ] organize completion for snippets vs lsp stuff
-- [ ] allow for typescript to get js snippets
+- [x] allow for typescript to get js snippets
 - [ ] shortcut for all diagnostic errors, some sort of bottom error line
