@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     local tele = require("telescope.builtin")
-    map("gd", tele.lsp_definitions, "Goto Definition")
+    map("gd", vim.lsp.buf.definition, "Goto Definition")
     map("<leader>fs", tele.lsp_document_symbols, "Doc Symbols")
     map("<leader>fS", tele.lsp_dynamic_workspace_symbols, "Dynamic Symbols")
     map("<leader>ft", tele.lsp_type_definitions, "Goto Type")
