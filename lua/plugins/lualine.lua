@@ -5,6 +5,9 @@ return {
       options = {
         theme = "auto",
       },
+      extensions = {
+        'oil'
+      }
     })
   end,
 }
