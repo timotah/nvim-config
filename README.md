@@ -36,3 +36,5 @@
 - [ ] organize completion for snippets vs lsp stuff
 - [x] allow for typescript to get js snippets
 - [ ] shortcut for all diagnostic errors, some sort of bottom error line
+- [ ] some sort of fuzzy finder for in the terminal to cd into things, figuring out how to use fzf for that
+- [ ] finding a color scheme i actually like, may go back to original for now
