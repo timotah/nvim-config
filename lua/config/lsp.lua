@@ -15,6 +15,8 @@ vim.lsp.enable({
   "cssls",
   -- python
   "pyright",
+  -- emmet
+  "emmet_language_server"
 })
 
 local config_copy = vim.deepcopy(vim.lsp.config["angularls"])

@@ -20,7 +20,7 @@
 - [ ] nerdfont
 - [ ] prettier lualine
 - [x] adding the html lsp to the htmlangular filetype
-- [ ] adding emmet abbreviation ability in html and angularhtml
+- [x] adding emmet abbreviation ability in html and angularhtml
 - [ ] getting harpoon and maybe prettify the tabs a bit more
 - [x] getting the header of the functions to stick on scrolling, will help with symbol search
 - [x] removing the autopairs extension
