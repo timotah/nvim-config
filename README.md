@@ -3,9 +3,9 @@
 - [x] configuring diagnostics a bit more, maybe use virtual lines
 - [ ] learn about the quickfixes interface
 - [x] learning oil nvim better
-- [ ] markdown plugin
+- [x] markdown plugin
 - [x] autocomplete suggestions for the command line as well
-- [ ] configure some adjustments to command line autocomplete: removing type declarations in it, autocomplete keymaps
+- [x] configure some adjustments to command line autocomplete: removing type declarations in it, autocomplete keymaps
 - [x] border window for the command line also
 - [x] configuring dashboard a bit better for some general telescope finder options or go right to oil
 - [x] choosing between ts_ls and eslint - **chose ts_ls**
@@ -14,7 +14,7 @@
 - [x] installing angular html css lsps and treesitter maybe some angular snippets too for control flow
 - [ ] installing json and yaml lsps and treesitter
 - [x] change to fzf lua
-- [ ] adding a more custom startup window for the dashboard
+- [x] adding a more custom startup window for the dashboard - not going to use one
 - [ ] checkout trouble.nvim
 - [ ] look at treesitter incremental selection and what it is
 - [ ] nerdfont
@@ -27,14 +27,16 @@
 
 # Things that must be done before using in work
 
-- [ ] learning a bit more about tmux, and the scrolling, maybe using vim motinos within it
+- [x] learning a bit more about tmux, and the scrolling, maybe using vim motions within it
 - [x] change definition operations off of telescope to native nvim
 - [x] learn to control mutliple windows in neovim at once
 - [x] angularls needs to have forceStrictTemplate enabled and somehow use vim.lsp.config or the angular.ls for it, do it in the angularls file, may just have to debug at the lsp level for the configuration change
 - [ ] configuring codecompanion with my copilot token
-- [ ] configuring inline copilot token suggestions
+- [x] configuring inline copilot token suggestions
 - [x] organize completion for snippets vs lsp stuff - just know what to type for your snippets
 - [x] allow for typescript to get js snippets
 - [ ] shortcut for all diagnostic errors, some sort of bottom error line
+- [ ] remove the virtual_lines, it is agressive
+- [ ] glyph icons for the statuses
 - [ ] some sort of fuzzy finder for in the terminal to cd into things, figuring out how to use fzf for that
 - [ ] finding a color scheme i actually like, may go back to original for now

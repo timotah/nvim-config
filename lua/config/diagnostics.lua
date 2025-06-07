@@ -1,6 +1,10 @@
 vim.diagnostic.config({
-  virtual_lines = true,
-  virtual_text = {
+  virtual_lines = {
     current_line = true
-  }
+  },
+  -- virtual_text = {
+  --   spacing = 4,
+  --   current_line = false,
+  --   prefix = '●', -- Could be '●', '▎', 'x', etc.
+  -- },
 })
