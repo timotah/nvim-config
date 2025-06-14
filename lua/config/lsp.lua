@@ -50,7 +50,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("<leader>k", vim.lsp.buf.signature_help, "sig help")
     map("<leader>rn", vim.lsp.buf.rename, "rename")
     map("<leader>ca", vim.lsp.buf.code_action, "code action")
-    map("<leader>wf", vim.lsp.buf.format, "format")
 
     vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "Lsp: code_action" })
   end,
