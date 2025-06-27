@@ -44,5 +44,3 @@ vim.keymap.set("n", "<C-e>", "<cmd>Oil<CR>")
 -- ensures ctrl c works like esc in insert mode
 vim.keymap.set({ "i", "v" }, "<C-c>", "<Esc>")
 vim.keymap.set("v", "<leader>y", '"+y')
-vim.keymap.set("v", "<leader>p", '"+p')
-
