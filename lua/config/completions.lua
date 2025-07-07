@@ -32,6 +32,10 @@ cmp.setup({
     { name = "luasnip" }, -- For luasnip users.
     { name = "buffer" },
   }),
+  performance = {
+    debounce = 0,
+    throttle = 0,
+  },
 })
 -- -- TIM-TODO: RESEARCH THE GITCOMMIUTMSet configuration for specific filetype.
 -- -- cmp.setup.filetype('gitcommit', {

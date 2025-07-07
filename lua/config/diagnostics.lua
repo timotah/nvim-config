@@ -8,3 +8,5 @@ vim.diagnostic.config({
   --   prefix = '●', -- Could be '●', '▎', 'x', etc.
   -- },
 })
+
+vim.lsp.set_log_level("warn")
