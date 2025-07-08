@@ -1,10 +1,43 @@
 return {
-  "sainnhe/sonokai",
+  "catppuccin/nvim",
   lazy = false,
-  name = "sonokai",
+  name = "catppuccin",
   priority = 1000,
+  opts = {
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
+    terminal_colors = true,
+    styles = {
+      comments = { "italic" },
+      -- conditionals = { "italic" },
+      -- loops = { "italic" },
+      -- functions = { "italic" },
+      -- keywords = { "italic" },
+      -- strings = {},
+      -- variables = {},
+      -- numbers = {},
+      -- booleans = {},
+      -- properties = {},
+      -- types = {},
+      -- operators = {},
+    },
+    integrations = {
+      cmp = true,
+      telescope = true,
+      treesitter = true,
+      oil = true,
+      native_lsp = {
+        enabled = true,
+        virtual_text = {
+          errors = { "italic" },
+          hints = { "italic" },
+          warnings = { "italic" },
+          information = { "italic" },
+        },
+      },
+    },
+  },
   config = function()
-    vim.cmd.colorscheme "sonokai"
-  end
+    vim.cmd.colorscheme "catppuccin-mocha"
+  end,
 }
 
