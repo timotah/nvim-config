@@ -1,7 +1,7 @@
 # Things to still do
 
 - [x] configuring diagnostics a bit more, maybe use virtual lines
-- [ ] learn about the quickfixes interface
+- [x] learn about the quickfixes interface
 - [x] learning oil nvim better
 - [x] markdown plugin
 - [x] autocomplete suggestions for the command line as well
@@ -12,12 +12,12 @@
 - [x] simplify your lsp configuration to your own tools, can still use telescope if you want
 - [x] adding lazydev to get completion on the vim global api
 - [x] installing angular html css lsps and treesitter maybe some angular snippets too for control flow
-- [ ] installing json and yaml lsps and treesitter
+- [x] installing json and yaml lsps and treesitter
 - [x] change to fzf lua
 - [x] adding a more custom startup window for the dashboard - not going to use one
-- [ ] checkout trouble.nvim
+- [x] checkout trouble.nvim
 - [ ] look at treesitter incremental selection and what it is
-- [ ] nerdfont
+- [x] nerdfont
 - [ ] prettier lualine
 - [x] adding the html lsp to the htmlangular filetype
 - [x] adding emmet abbreviation ability in html and angularhtml
@@ -31,12 +31,22 @@
 - [x] change definition operations off of telescope to native nvim
 - [x] learn to control mutliple windows in neovim at once
 - [x] angularls needs to have forceStrictTemplate enabled and somehow use vim.lsp.config or the angular.ls for it, do it in the angularls file, may just have to debug at the lsp level for the configuration change
-- [ ] configuring codecompanion with my copilot token
+- [x] configuring codecompanion with my copilot token
 - [x] configuring inline copilot token suggestions
 - [x] organize completion for snippets vs lsp stuff - just know what to type for your snippets
 - [x] allow for typescript to get js snippets
 - [ ] shortcut for all diagnostic errors, some sort of bottom error line
 - [ ] remove the virtual_lines, it is agressive
 - [ ] glyph icons for the statuses
-- [ ] some sort of fuzzy finder for in the terminal to cd into things, figuring out how to use fzf for that
-- [ ] finding a color scheme i actually like, may go back to original for now
+- [x] some sort of fuzzy finder for in the terminal to cd into things, figuring out how to use fzf for that
+- [x] finding a color scheme i actually like, may go back to original for now
+
+# Things to get for the next lsp updates
+
+- [ ] figuring out omnifunctions to avoid constant lsp completion
+- [ ] making copilot into a button press for acceptance rather than a tab press
+- [ ] trying vtls server instead of ts_ls
+- [ ] figure out why angularls and copilot are not considered valid names for the lsp servers with the TS* commands
+- [ ] possibly try otter.nvim
+- [ ] add harpoon and gitsigns or the snacks equivalent
+

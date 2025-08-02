@@ -102,9 +102,3 @@ vim.api.nvim_create_autocmd("LspProgress", {
 
 -- adding hover borders for lsps, not doing it right now because of telescope weird borders
 -- vim.o.winborder = "rounded"
-
--- PERFORMANCE TIP: To disable diagnostics or formatting for TypeScript, add to your ts_ls config:
--- vim.lsp.config("ts_ls", { settings = { diagnostics = { enable = false }, format = { enable = false } } })
--- To increase node memory for tsserver, set the env variable before launching Neovim:
--- export NODE_OPTIONS=--max-old-space-size=4096
-
