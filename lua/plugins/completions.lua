@@ -6,15 +6,15 @@ return {
 	opts = {
     keymap = {
       preset = 'default',
-      ['<C-n>'] = { 'next_item' },
-      ['<C-p>'] = { 'prev_item' },
-      ['<C-y>'] = { 'accept', 'accept_word', 'accept_line' },
-      ['<C-c>'] = { 'cancel' },
-      ['<C-d>'] = { 'scroll_down' },
-      ['<C-u>'] = { 'scroll_up' },
-      ['<C-f>'] = { 'show_menu', 'hide_menu' },
-      ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-      ['<C-e>'] = { 'hide' },
+      -- ['<C-n>'] = { 'next_item' },
+      -- ['<C-p>'] = { 'prev_item' },
+      -- ['<C-y>'] = { 'accept', 'accept_word', 'accept_line' },
+      -- ['<C-c>'] = { 'cancel' },
+      -- ['<C-d>'] = { 'scroll_down' },
+      -- ['<C-u>'] = { 'scroll_up' },
+      -- ['<C-f>'] = { 'show_menu', 'hide_menu' },
+      -- ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      -- ['<C-e>'] = { 'hide' },
       -- ...other mappings as needed
     },
     completion = {

@@ -44,9 +44,10 @@
 # Things to get for the next lsp updates
 
 - [ ] figuring out omnifunctions to avoid constant lsp completion
-- [ ] making copilot into a button press for acceptance rather than a tab press
+- [x] making copilot into a button press for acceptance rather than a tab press
 - [ ] trying vtls server instead of ts_ls
 - [ ] figure out why angularls and copilot are not considered valid names for the lsp servers with the TS* commands
 - [ ] possibly try otter.nvim
 - [ ] add harpoon and gitsigns or the snacks equivalent
+- [ ] hook up the ts_ls server and look for certain optimizations, put completions to a keybinding
 

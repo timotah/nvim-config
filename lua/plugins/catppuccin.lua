@@ -4,7 +4,7 @@ return {
   name = "catppuccin",
   priority = 1000,
   opts = {
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     terminal_colors = true,
     styles = {
       comments = { "italic" },
@@ -37,7 +37,7 @@ return {
     },
   },
   config = function()
-    vim.cmd.colorscheme "catppuccin-macchiato"
+    vim.cmd.colorscheme "catppuccin-mocha"
   end,
 }
 
