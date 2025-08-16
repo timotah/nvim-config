@@ -23,4 +23,9 @@ return {
   dependencies = {
     "echasnovski/mini.icons", version = "*"
   },
+  keys = {
+    { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+    { "<C-p>", function() Snacks.picker.files() end, desc = "Find Files" },
+
+  }
 }
