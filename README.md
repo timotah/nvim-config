@@ -21,7 +21,6 @@
 - [ ] prettier lualine
 - [x] adding the html lsp to the htmlangular filetype
 - [x] adding emmet abbreviation ability in html and angularhtml
-- [ ] getting harpoon and maybe prettify the tabs a bit more
 - [x] getting the header of the functions to stick on scrolling, will help with symbol search
 - [x] removing the autopairs extension
 
@@ -35,9 +34,6 @@
 - [x] configuring inline copilot token suggestions
 - [x] organize completion for snippets vs lsp stuff - just know what to type for your snippets
 - [x] allow for typescript to get js snippets
-- [ ] shortcut for all diagnostic errors, some sort of bottom error line
-- [ ] remove the virtual_lines, it is agressive
-- [ ] glyph icons for the statuses
 - [x] some sort of fuzzy finder for in the terminal to cd into things, figuring out how to use fzf for that
 - [x] finding a color scheme i actually like, may go back to original for now
 
@@ -45,9 +41,14 @@
 
 - [ ] figuring out omnifunctions to avoid constant lsp completion
 - [x] making copilot into a button press for acceptance rather than a tab press
-- [ ] trying vtls server instead of ts_ls
+- [ ] trying vtls server instead of ts_ls, or if that doesn't work, look at alternatives
+- [ ] add package.json/.git/package-lock.json to the root directory detection for the ts_ls server
 - [ ] figure out why angularls and copilot are not considered valid names for the lsp servers with the TS* commands
+- [ ] glyph icons for the statuses
+- [ ] shortcut for all diagnostic errors, some sort of bottom error line
+- [ ] remove the virtual_lines, it is agressive
+
+## Nice to haves for the next updates
 - [ ] possibly try otter.nvim
 - [ ] add harpoon and gitsigns or the snacks equivalent
-- [ ] hook up the ts_ls server and look for certain optimizations, put completions to a keybinding
 
