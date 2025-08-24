@@ -8,3 +8,4 @@ require("config.lsp")
 require("config.diagnostics")
 
 require("config.completions")
+require("config.autocommands")

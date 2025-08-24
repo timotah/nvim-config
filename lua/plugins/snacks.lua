@@ -25,7 +25,7 @@ return {
   },
   keys = {
     { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
-    { "<C-p>", function() Snacks.picker.files() end, desc = "Find Files" },
-
+    { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+    { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config Files" },
   }
 }

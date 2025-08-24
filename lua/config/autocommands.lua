@@ -1,8 +1,8 @@
 -- resize nvim when window is resized
 vim.api.nvim_create_autocmd("VimResized", {
-  callback = function()
-    vim.cmd("wincmd =")
-  end,
+  group = vim.api.nvim_create_augroup("resize_windows", { clear = true }),
+  pattern = "*",
+  command = "wincmd =",
 })
 
 -- dynamic line numbers
