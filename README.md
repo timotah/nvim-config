@@ -53,6 +53,6 @@
 - [ ] add harpoon and gitsigns or the snacks equivalent
 - [x] hook up the ts_ls server and look for certain optimizations, put completions to a keybinding
 - [x] setting up conform.nvim
-- [ ] putting proper icons
+- [x] putting proper icons
 - [ ] adding auto tag complete
 

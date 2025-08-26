@@ -19,13 +19,6 @@ vim.lsp.enable({
   "emmet_language_server"
 })
 
-local config_copy = vim.deepcopy(vim.lsp.config["angularls"])
-local cmd_copy = config_copy.cmd --[[@as string[] ]]
-local new_cfg = vim.list_extend(cmd_copy, { "--forceStrictTemplates" })
-vim.lsp.config("angularls", {
-  cmd = new_cfg,
-})
-
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
