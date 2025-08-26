@@ -9,7 +9,7 @@ return {
     },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
-      "neovim/nvim-lspconfig",
+      { "neovim/nvim-lspconfig", version = "v2.4.0" },
       {
         "jay-babu/mason-null-ls.nvim",
         opts = {
