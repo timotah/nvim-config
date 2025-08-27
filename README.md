@@ -42,11 +42,11 @@
 - [ ] figuring out omnifunctions to avoid constant lsp completion
 - [x] making copilot into a button press for acceptance rather than a tab press
 - [ ] trying vtls server instead of ts_ls, or if that doesn't work, look at alternatives
-- [ ] add package.json/.git/package-lock.json to the root directory detection for the ts_ls server
-- [ ] figure out why angularls and copilot are not considered valid names for the lsp servers with the TS* commands
-- [ ] glyph icons for the statuses
-- [ ] shortcut for all diagnostic errors, some sort of bottom error line
-- [ ] remove the virtual_lines, it is agressive
+- [x] add package.json/.git/package-lock.json to the root directory detection for the ts_ls server
+- [x] figure out why angularls and copilot are not considered valid names for the lsp servers with the TS* commands: no need since i just roll my own lsp configs now
+- [x] glyph icons for the statuses
+- [x] shortcut for all diagnostic errors, some sort of bottom error line
+- [x] remove the virtual_lines, it is agressive
 
 ## Nice to haves for the next updates
 - [ ] possibly try otter.nvim
@@ -55,4 +55,7 @@
 - [x] setting up conform.nvim
 - [x] putting proper icons
 - [ ] adding auto tag complete
+- [ ] git signs
+- [ ] checkout snacks scope
+- [ ] check out snacks git
 
