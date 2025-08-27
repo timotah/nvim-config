@@ -1,8 +1,8 @@
 local icons = {
-  error = " ",
-  warn  = " ",
-  hint  = " ",
-  info  = " ",
+  error = "",
+  warn  = "",
+  hint  = "",
+  info  = "",
 }
 
 vim.diagnostic.config({
