@@ -56,6 +56,6 @@
 - [x] putting proper icons
 - [ ] adding auto tag complete
 - [ ] git signs
-- [ ] checkout snacks scope
+- [x] checkout snacks scope
+- [x] sticky headers
 - [ ] check out snacks git
-
