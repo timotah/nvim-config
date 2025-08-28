@@ -4,6 +4,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
+vim.cmd.colorscheme "catppuccin-mocha"
 vim.opt.termguicolors = true
 -- any commands that you want to have a short to, add <leader>
 vim.g.mapleader = " "
@@ -12,6 +13,7 @@ vim.g.mapleader = " "
 vim.opt.relativenumber = true
 -- Enable absolute line numbers -- changes 0 on the current line to the actual line number
 vim.opt.number = true
+vim.opt.cursorline = true
 
 -- Enable relative line numbers by default
 

@@ -1,5 +1,11 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	-- Load treesitter early when opening a file from the cmdline
+	lazy = vim.fn.argc(-1) == 0,
+	-- Drastically improves startup time by lazy loading syntax highlighting
+	-- and other nvim-treesitter features
+	event = "VeryLazy",
+	main = "nvim-treesitter.configs", -- Sets main module to use for opts
 	build = ":TSUpdate",
 	opts = {
 		auto_install = true,
@@ -9,13 +15,20 @@ return {
 	dependencies = {
 		{
 			"nvim-treesitter/nvim-treesitter-context",
-			opts = {
-        mutliline_threshold = 3,
-				mode = "cursor",
-			},
 			config = function()
-				vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = false })
-				vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { underline = false })
+				-- vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = false })
+				-- vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { underline = false })
+				require("treesitter-context").setup({
+					enable = true,
+					max_lines = 3,
+					min_window_height = 0,
+					line_numbers = true,
+					multiline_threshold = 3,
+					trim_scope = "outer",
+					mode = "cursor", -- 'cursor' or 'topline'
+					separator = nil,
+					zindex = 20,
+				})
 			end,
 		},
 	},
