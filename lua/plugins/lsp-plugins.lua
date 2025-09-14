@@ -13,7 +13,6 @@ return {
 				-- "emmet_language_server",
 			},
 			automatic_enable = false,
-      -- only allow automatic installations 
 			automatic_installation = true,
 		},
 		dependencies = {
