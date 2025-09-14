@@ -60,7 +60,7 @@ vim.keymap.set("v", "<leader>cf", function()
 end, { desc = "Format code" })
 
 -- copilot keymap redo
-vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+vim.keymap.set('i', '<C-J>', 'copilot#Accept(\"\\<CR>\")', {
   expr = true,
   replace_keycodes = false
 })
