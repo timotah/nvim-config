@@ -38,7 +38,6 @@ return {
           enabled = true,
           async = true,
           timeout_ms = 500,
-          max_items = 5,
         },
       },
     },
