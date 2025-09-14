@@ -35,9 +35,12 @@ return {
         },
       },
     },
-  },
-  config = function()
-    vim.cmd.colorscheme "catppuccin-mocha"
-  end,
+    custom_highlights = function(colors)
+        return {
+            LineNr = { fg = colors.subtext0 },
+            CursorLineNr = { fg = colors.rosewater, bold = true },
+        }
+    end,
+  }
 }
 

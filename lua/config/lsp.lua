@@ -1,4 +1,4 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 vim.lsp.config("*", {
   capabilities = capabilities,
 })
@@ -19,13 +19,6 @@ vim.lsp.enable({
   "emmet_language_server"
 })
 
-local config_copy = vim.deepcopy(vim.lsp.config["angularls"])
-local cmd_copy = config_copy.cmd --[[@as string[] ]]
-local new_cfg = vim.list_extend(cmd_copy, { "--forceStrictTemplates" })
-vim.lsp.config("angularls", {
-  cmd = new_cfg,
-})
-
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -35,13 +28,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = "Lsp: " .. desc })
     end
 
-    local tele = require("telescope.builtin")
+    -- local tele = require("telescope.builtin")
     map("gd", vim.lsp.buf.definition, "Goto Definition")
-    map("gr", tele.lsp_references, 'Goto References')
-    map("<leader>fs", tele.lsp_document_symbols, "Doc Symbols")
-    map("<leader>fS", tele.lsp_dynamic_workspace_symbols, "Dynamic Symbols")
-    map("<leader>ft", tele.lsp_type_definitions, "Goto Type")
-    map("<leader>fi", tele.lsp_implementations, "Goto Impl")
+    -- map("gr", tele.lsp_references, 'Goto References')
+    -- map("<leader>fs", tele.lsp_document_symbols, "Doc Symbols")
+    -- map("<leader>fS", tele.lsp_dynamic_workspace_symbols, "Dynamic Symbols")
+    -- map("<leader>ft", tele.lsp_type_definitions, "Goto Type")
+    -- map("<leader>fi", tele.lsp_implementations, "Goto Impl")
 
     map("K", function()
       vim.lsp.buf.hover({ border = "rounded" })
@@ -55,5 +48,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+
 -- adding hover borders for lsps, not doing it right now because of telescope weird borders
 -- vim.o.winborder = "rounded"
+
+-- PERFORMANCE TIP: To disable diagnostics or formatting for TypeScript, add to your ts_ls config:
+-- vim.lsp.config("ts_ls", { settings = { diagnostics = { enable = false }, format = { enable = false } } })
+-- To increase node memory for tsserver, set the env variable before launching Neovim:
+-- export NODE_OPTIONS=--max-old-space-size=4096
+
