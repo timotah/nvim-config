@@ -58,4 +58,9 @@
 - [ ] git signs
 - [x] checkout snacks scope
 - [x] sticky headers
-- [ ] check out snacks git
+- [x] check out snacks git
+
+## Git Needs
+- [ ] gitsigns 
+- [x] fugitive
+- [ ] learning more about gitsigns abilities and fugitive abilities, maybe making keybindings for them?
