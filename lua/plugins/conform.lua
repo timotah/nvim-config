@@ -8,6 +8,12 @@ return {
       lua = { "stylua" },
       typescript = { "prettier" },
       javascript = { "prettier" },
+      json = { "prettier" },
+      html = { "prettier" },
+      css = { "prettier" },
+      scss = { "prettier" },
+      markdown = { "prettier" },
+      yaml = { "prettier" },
       python = { "black" },
     },
     default_format_opts = {

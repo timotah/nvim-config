@@ -28,5 +28,6 @@ return {
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
     { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config Files" },
     { "<leader>fe", function() Snacks.picker.explorer() end, desc = "Open File Explorer" },
+    { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
   }
 }

@@ -13,7 +13,7 @@ return {
       -- ['<C-d>'] = { 'scroll_down' },
       -- ['<C-u>'] = { 'scroll_up' },
       -- ['<C-f>'] = { 'show_menu', 'hide_menu' },
-      ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      -- ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       -- ['<C-e>'] = { 'hide' },
       -- ...other mappings as needed
     },
