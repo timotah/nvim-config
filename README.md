@@ -50,17 +50,18 @@
 
 ## Nice to haves for the next updates
 - [ ] possibly try otter.nvim
-- [ ] add harpoon and gitsigns or the snacks equivalent
+- [ ] add harpoon
 - [x] hook up the ts_ls server and look for certain optimizations, put completions to a keybinding
 - [x] setting up conform.nvim
 - [x] putting proper icons
-- [ ] adding auto tag complete
-- [ ] git signs
+- [x] adding auto tag complete
+- [x] git signs
 - [x] checkout snacks scope
 - [x] sticky headers
 - [x] check out snacks git
-
-## Git Needs
-- [ ] gitsigns 
+- [x] gitsigns 
 - [x] fugitive
 - [ ] learning more about gitsigns abilities and fugitive abilities, maybe making keybindings for them?
+- [ ] fix the reference commands GR
+- [ ] checkout fff.nvim
+- [ ] learn more about quickfix lists
