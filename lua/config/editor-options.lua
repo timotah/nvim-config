@@ -15,12 +15,13 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.cursorline = true
 
--- Enable relative line numbers by default
 
--- set keymaps here
+-- SET KEYMAPS HERE
+
 vim.keymap.set("n", "<C-e>", "<cmd>Oil<CR>")
 -- ensures ctrl c works like esc in insert mode
 vim.keymap.set({ "i", "v" }, "<C-c>", "<Esc>")
+-- allow for copying to sys clipboard
 vim.keymap.set("v", "<leader>y", '"+y')
 
 -- Diagnostics quickfix keymaps
@@ -44,6 +45,7 @@ vim.keymap.set("n", "<leader>qi", function()
   vim.cmd("copen")
 end, { desc = "Quickfix: info only" })
 
+-- conform keymaps
 vim.keymap.set("n", "<leader>cf", function()
   require("conform").format({async = true})
 end, {desc = "Format File"})
