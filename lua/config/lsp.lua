@@ -17,6 +17,8 @@ vim.lsp.enable({
 	"pyright",
 	-- emmet
 	"emmet_language_server",
+  -- copilot
+  "copilot",
 })
 
 -- Use LspAttach autocommand to only map the following keys
