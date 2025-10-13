@@ -7,6 +7,13 @@ return {
 				backend = "tmux",
 				enabled = true,
 			},
+			tools = {
+				opencode = {
+					cmd = { "opencode" },
+					-- HACK: https://github.com/sst/opencode/issues/445
+					env = { OPENCODE_THEME = "catppuccin" },
+				}
+			},
 		},
 	},
   -- stylua: ignore
