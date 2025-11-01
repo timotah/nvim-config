@@ -22,3 +22,8 @@ vim.diagnostic.config({
 })
 
 vim.lsp.set_log_level("warn")
+
+-- Keymaps for diagnostics
+-- local opts = { noremap=true, silent=true }
+-- vim.keymap.set("n", "<leader>xn", vim.diagnostic.jump({ count = 1, float = true}), opts)
+-- vim.keymap.set("n", "<leader>xp", vim.diagnostic.jump({ count = -1, float = true}), opts)

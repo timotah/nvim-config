@@ -24,27 +24,6 @@ vim.keymap.set({ "i", "v" }, "<C-c>", "<Esc>")
 -- allow for copying to sys clipboard
 vim.keymap.set("v", "<leader>y", '"+y')
 
--- Diagnostics quickfix keymaps
-vim.keymap.set("n", "<leader>qa", function()
-  vim.diagnostic.setqflist()
-  vim.cmd("copen")
-end, { desc = "Quickfix: all diagnostics" })
-
-vim.keymap.set("n", "<leader>qe", function()
-  vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.ERROR })
-  vim.cmd("copen")
-end, { desc = "Quickfix: errors only" })
-
-vim.keymap.set("n", "<leader>qh", function()
-  vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.HINT })
-  vim.cmd("copen")
-end, { desc = "Quickfix: hints only" })
-
-vim.keymap.set("n", "<leader>qi", function()
-  vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.INFO })
-  vim.cmd("copen")
-end, { desc = "Quickfix: info only" })
-
 -- conform keymaps
 vim.keymap.set("n", "<leader>cf", function()
   require("conform").format({async = true})
