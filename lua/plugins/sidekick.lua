@@ -60,8 +60,8 @@ return {
       desc = "Sidekick Select Prompt",
     },
     {
-      "<c-a>",
-      function() require("sidekick.cli").close() end,
+      "<C-.>",
+      function() require("sidekick.cli").focus() end,
       mode = { "n", "x", "i", "t" },
       desc = "Sidekick Switch Focus",
     },
