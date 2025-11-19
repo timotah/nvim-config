@@ -13,8 +13,11 @@ return {
 					-- HACK: https://github.com/sst/opencode/issues/445
 					-- env = { OPENCODE_THEME = "catppuccin" },
 					env = {
-						OPENCODE_CONFIG_DIR = vim.fn.expand('~/.config/opencode/'),
+						OPENCODE_CONFIG_DIR = vim.fn.expand("~/.config/opencode/"),
 					},
+				},
+				["kiro-cli"] = {
+					cmd = { "kiro-cli" },
 				},
 			},
 		},
@@ -34,7 +37,7 @@ return {
 		{
 			"<c-a>",
 			function()
-				require("sidekick.cli").toggle()
+				require("sidekick.cli").focus()
 			end,
 			desc = "Sidekick Toggle",
 			mode = { "n", "t", "i", "x" },
@@ -62,12 +65,19 @@ return {
 			-- require("sidekick.cli").select({ filter = { installed = true } })
 			desc = "Select CLI",
 		},
+		-- {
+		-- 	"<leader>ad",
+		-- 	function()
+		-- 		require("sidekick.cli").close()
+		-- 	end,
+		-- 	desc = "Detach a CLI Session",
+		-- },
 		{
-			"<leader>ad",
+			"<leader>ah",
 			function()
-				require("sidekick.cli").close()
+				require("sidekick.cli").hide()
 			end,
-			desc = "Detach a CLI Session",
+			desc = "Hide a CLI Session",
 		},
 		{
 			"<leader>at",
