@@ -15,6 +15,7 @@ return {
       markdown = { "prettier" },
       yaml = { "prettier" },
       python = { "black" },
+      htmlangular = { "prettier" },
     },
     default_format_opts = {
       lsp_format = "fallback",

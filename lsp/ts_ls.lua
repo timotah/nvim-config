@@ -45,8 +45,16 @@
 
 ---@type vim.lsp.Config
 return {
-  init_options = { hostInfo = 'neovim' },
-  cmd = { 'typescript-language-server', '--stdio' },
+  init_options = { 
+    hostInfo = 'neovim',
+    maxTsServerMemory = 2048,  -- Limit TS server to 512MB
+  },
+  cmd = { 
+    'node',
+    '--max-old-space-size=2048',  -- Node memory limit
+    vim.fn.exepath('typescript-language-server'),
+    '--stdio'
+  },
   filetypes = {
     'javascript',
     'javascriptreact',
@@ -69,6 +77,35 @@ return {
 
     on_dir(project_root)
   end,
+  settings = {
+    typescript = {
+      tsserver = {
+        maxTsServerMemory = 512,
+        watchOptions = {
+          excludeDirectories = {
+            "**/node_modules",
+            "**/.git",
+            "**/dist",
+            "**/build",
+            "**/.angular",
+          },
+        },
+      },
+    },
+    javascript = {
+      tsserver = {
+        watchOptions = {
+          excludeDirectories = {
+            "**/node_modules",
+            "**/.git",
+            "**/dist",
+            "**/build",
+            "**/.angular",
+          },
+        },
+      },
+    },
+  },
   handlers = {
     -- handle rename request for certain code actions like extracting functions / types
     ['_typescript.rename'] = function(_, result, ctx)

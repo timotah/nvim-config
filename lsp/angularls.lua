@@ -73,7 +73,9 @@ local ng_probe_dirs = vim
 ---@type vim.lsp.Config
 return {
   cmd = {
-    'ngserver',
+    'node',
+    '--max-old-space-size=2048',  -- Node memory limit (2048MB)
+    ngserver_exe,
     '--stdio',
     '--tsProbeLocations',
     ts_probe_dirs,
