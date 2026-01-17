@@ -6,5 +6,5 @@ require("config.editor-options")
 require("config.diagnostics")
 -- lsp activate, keymaps, and configs, default configs from nvim-lspconfig are used generally
 require("config.lsp")
-require("config.completions")
+-- require("config.completions")
 require("config.autocommands")

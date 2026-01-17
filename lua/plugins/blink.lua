@@ -2,7 +2,7 @@ return {
 	"saghen/blink.cmp",
 	version = "1.*",
 	-- `main` is untested, please open a PR if you've confirmed it works as expected
-	dependencies = { { "L3MON4D3/LuaSnip", version = "v2.*" }, { "rafamadriz/friendly-snippets" } },
+	dependencies = { "rafamadriz/friendly-snippets" },
 	opts = {
 		keymap = {
 			preset = "default",
@@ -32,7 +32,7 @@ return {
 			keymap = { preset = "inherit" },
 			completion = { menu = { auto_show = true } },
 		},
-		snippets = { preset = "luasnip" },
+		snippets = { preset = "default" },
 		-- ensure you have the `snippets` source (enabled by default)
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
@@ -42,6 +42,15 @@ return {
 					enabled = true,
 					async = true,
 					timeout_ms = 500,
+				},
+				snippets = {
+					opts = {
+						friendly_snippets = true,
+						extended_filetypes = {
+							typescript = { "javascript" },
+							htmlangular = { "html" },
+						},
+					},
 				},
 			},
 		},

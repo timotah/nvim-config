@@ -16,7 +16,7 @@ vim.lsp.enable({
 	-- python
 	"pyright",
 	-- emmet
-	"emmet_language_server",
+	-- "emmet_language_server",
   -- copilot
   "copilot",
 })

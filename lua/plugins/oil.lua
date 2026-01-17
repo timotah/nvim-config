@@ -15,5 +15,8 @@ return {
         show_hidden = true,
       },
     })
+    -- Create :Explorer alias for oil.nvim
+    vim.api.nvim_create_user_command('Explorer', 'Oil', {})
+    vim.api.nvim_create_user_command('Ex', 'Oil', {})
   end,
 }
