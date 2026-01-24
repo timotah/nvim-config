@@ -7,6 +7,50 @@ return {
 				backend = "tmux",
 				enabled = true,
 			},
+			win = {
+				keys = {
+					prompt = { "<a-p>", "prompt", mode = "t", desc = "insert prompt or context" },
+					toggle_focus = {
+						"<c-a>",
+						function(terminal)
+							local mode = vim.fn.mode()
+							
+							if mode == "t" then
+								-- We're in terminal mode, need to switch to another window
+								-- Note: wincmd("p") doesn't work from terminal mode keymaps,
+								-- so we manually find and switch to a non-terminal window
+								
+								local current_win = vim.api.nvim_get_current_win()
+								local all_wins = vim.api.nvim_list_wins()
+								
+								-- Find the first window that isn't the current terminal
+								local target_win = nil
+								for _, win in ipairs(all_wins) do
+									if win ~= current_win then
+										target_win = win
+										break
+									end
+								end
+								
+								if target_win then
+									-- Exit terminal mode first
+									vim.cmd.stopinsert()
+									
+									-- Schedule the window switch to happen after stopinsert completes
+									vim.schedule(function()
+										vim.api.nvim_set_current_win(target_win)
+									end)
+								end
+							else
+								-- Already in normal mode, use the standard blur method
+								terminal:blur()
+							end
+						end,
+						mode = { "n", "t" },
+						desc = "Return to editor",
+					},
+				},
+			},
 			tools = {
 				opencode = {
 					cmd = { "opencode" },
@@ -37,10 +81,12 @@ return {
 		{
 			"<c-a>",
 			function()
+				-- This keymap is for focusing the terminal from editor buffers
+				-- The reverse (terminal -> editor) is handled by sidekick's win.keys
 				require("sidekick.cli").focus()
 			end,
-			desc = "Sidekick Toggle",
-			mode = { "n", "t", "i", "x" },
+			desc = "Sidekick Focus Terminal",
+			mode = { "n", "i", "x" }, -- Removed "t" mode since it's handled by sidekick
 		},
 		{
 			"<leader>ao",
