@@ -14,15 +14,15 @@ return {
 						"<c-a>",
 						function(terminal)
 							local mode = vim.fn.mode()
-							
+
 							if mode == "t" then
 								-- We're in terminal mode, need to switch to another window
 								-- Note: wincmd("p") doesn't work from terminal mode keymaps,
 								-- so we manually find and switch to a non-terminal window
-								
+
 								local current_win = vim.api.nvim_get_current_win()
 								local all_wins = vim.api.nvim_list_wins()
-								
+
 								-- Find the first window that isn't the current terminal
 								local target_win = nil
 								for _, win in ipairs(all_wins) do
@@ -31,11 +31,11 @@ return {
 										break
 									end
 								end
-								
+
 								if target_win then
 									-- Exit terminal mode first
 									vim.cmd.stopinsert()
-									
+
 									-- Schedule the window switch to happen after stopinsert completes
 									vim.schedule(function()
 										vim.api.nvim_set_current_win(target_win)
@@ -94,6 +94,7 @@ return {
 				require("sidekick.cli").toggle({ name = "opencode", focus = true })
 			end,
 			desc = "Sidekick Toggle Opencode",
+			mode = { "n", "i", "x" },
 		},
 		{
 			"<leader>aa",
@@ -101,6 +102,7 @@ return {
 				require("sidekick.cli").toggle()
 			end,
 			desc = "Sidekick Toggle CLI",
+			mode = { "n", "i", "x" },
 		},
 		{
 			"<leader>as",
@@ -110,20 +112,31 @@ return {
 			-- Or to select only installed tools:
 			-- require("sidekick.cli").select({ filter = { installed = true } })
 			desc = "Select CLI",
+			mode = { "n", "i", "x" },
 		},
-		-- {
-		-- 	"<leader>ad",
-		-- 	function()
-		-- 		require("sidekick.cli").close()
-		-- 	end,
-		-- 	desc = "Detach a CLI Session",
-		-- },
+		{
+			"<leader>ad",
+			function()
+				require("sidekick.cli").close()
+			end,
+			desc = "Detach a CLI Session",
+			mode = { "n", "i", "x" },
+		},
+		{
+			"<a-h>",
+			function()
+				require("sidekick.cli").hide()
+			end,
+			desc = "Hide a CLI Session",
+			mode = { "t" },
+		},
 		{
 			"<leader>ah",
 			function()
 				require("sidekick.cli").hide()
 			end,
 			desc = "Hide a CLI Session",
+			mode = { "n", "i", "x" },
 		},
 		{
 			"<leader>at",
