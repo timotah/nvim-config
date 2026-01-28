@@ -94,7 +94,6 @@ return {
 				require("sidekick.cli").toggle({ name = "opencode", focus = true })
 			end,
 			desc = "Sidekick Toggle Opencode",
-			mode = { "n", "i", "x" },
 		},
 		{
 			"<leader>aa",
@@ -102,7 +101,6 @@ return {
 				require("sidekick.cli").toggle()
 			end,
 			desc = "Sidekick Toggle CLI",
-			mode = { "n", "i", "x" },
 		},
 		{
 			"<leader>as",
@@ -112,7 +110,6 @@ return {
 			-- Or to select only installed tools:
 			-- require("sidekick.cli").select({ filter = { installed = true } })
 			desc = "Select CLI",
-			mode = { "n", "i", "x" },
 		},
 		{
 			"<leader>ad",
@@ -120,7 +117,6 @@ return {
 				require("sidekick.cli").close()
 			end,
 			desc = "Detach a CLI Session",
-			mode = { "n", "i", "x" },
 		},
 		{
 			"<a-h>",
@@ -136,7 +132,6 @@ return {
 				require("sidekick.cli").hide()
 			end,
 			desc = "Hide a CLI Session",
-			mode = { "n", "i", "x" },
 		},
 		{
 			"<leader>at",

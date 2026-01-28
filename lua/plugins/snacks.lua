@@ -99,7 +99,14 @@ return {
 			function()
 				Snacks.picker.recent()
 			end,
-			desc = "Recent",
+			desc = "Find Recent Files",
+		},
+		{
+			"<leader>fb",
+			function()
+				Snacks.picker.buffers()
+			end,
+			desc = "Find Buffers",
 		},
 	},
 }
