@@ -10,7 +10,7 @@ return {
 		local basename = vim.fs.basename(cwd)
 		_99.setup({
 			model = "github-copilot/claude-sonnet-4.5",
-			languages = { "lua", "typescript", "go", "java", "javascript", "python" },
+			languages = { "lua", "typescript", "go", "java", "javascript", "python", "bash" },
 			logger = {
 				level = _99.DEBUG,
 				path = "/tmp/" .. basename .. ".99.debug",
