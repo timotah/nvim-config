@@ -29,7 +29,14 @@ return {
 			},
 		},
 		cmdline = {
-			keymap = { preset = "inherit" },
+			keymap = {
+				['<C-n>'] = { 'select_next', 'fallback' },
+				['<C-p>'] = { 'select_prev', 'fallback' },
+				['<C-y>'] = { 'accept', 'fallback' },
+				['<Up>'] = { 'fallback' },
+				['<Down>'] = { 'fallback' },
+				['<CR>'] = { 'accept_and_enter', 'fallback' },
+			},
 			completion = { menu = { auto_show = true } },
 		},
 		snippets = { preset = "default" },
