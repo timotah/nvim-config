@@ -30,12 +30,14 @@ return {
 		},
 		cmdline = {
 			keymap = {
-				['<C-n>'] = { 'select_next', 'fallback' },
-				['<C-p>'] = { 'select_prev', 'fallback' },
-				['<C-y>'] = { 'accept', 'fallback' },
+				['<C-n>'] = { 'select_next' },
+				['<C-p>'] = { 'select_prev' },
+				['<C-y>'] = { 'accept' },
 				['<Up>'] = { 'fallback' },
 				['<Down>'] = { 'fallback' },
-				['<CR>'] = { 'accept_and_enter', 'fallback' },
+				['<Left>'] = { 'fallback' },
+				['<Right>'] = { 'fallback' },
+				['<CR>'] = { 'fallback' },
 			},
 			completion = { menu = { auto_show = true } },
 		},
