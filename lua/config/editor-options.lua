@@ -14,6 +14,7 @@ vim.opt.relativenumber = true
 -- Enable absolute line numbers -- changes 0 on the current line to the actual line number
 vim.opt.number = true
 vim.opt.cursorline = true
+vim.o.autoread = true
 
 
 -- SET KEYMAPS HERE
