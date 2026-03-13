@@ -8,7 +8,15 @@ return {
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
 		bigfile = { enabled = false },
-		dashboard = { enabled = true },
+		dashboard = {
+			enabled = true,
+			sections = {
+				{ section = "header" },
+				{ section = "keys", gap = 1, padding = 1 },
+				{ icon = "󰊢 ", key = "d", desc = "Diff Unstaged Changes", action = ":DiffviewOpen", padding = 1 },
+				{ section = "startup" },
+			},
+		},
 		explorer = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },
