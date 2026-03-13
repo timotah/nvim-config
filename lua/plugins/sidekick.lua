@@ -13,6 +13,14 @@ return {
 			win = {
 				keys = {
 					prompt = { "<a-p>", "prompt", mode = "t", desc = "insert prompt or context" },
+				shift_enter = {
+					"<S-CR>",
+					function(terminal)
+						vim.api.nvim_chan_send(terminal.job, "\x1b[13;2u")
+					end,
+					mode = "t",
+					desc = "Send Shift+Enter to terminal application",
+				},
 					toggle_focus = {
 						"<c-a>",
 						function(terminal)
