@@ -24,6 +24,14 @@ end
 ---@type vim.lsp.Config
 return {
   cmd = { 'pyright-langserver', '--stdio' },
+  before_init = function(_, config)
+    local venv = os.getenv('VIRTUAL_ENV')
+    if venv then
+      config.settings.python.pythonPath = venv .. '/bin/python'
+    else
+      config.settings.python.pythonPath = vim.fn.exepath('python3')
+    end
+  end,
   filetypes = { 'python' },
   root_markers = {
     'pyproject.toml',
