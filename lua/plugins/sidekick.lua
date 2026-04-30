@@ -63,6 +63,9 @@ return {
 				},
 			},
 			tools = {
+				claude = {
+					cmd = { "claude", "--verbose", "--dangerously-skip-permissions" },
+				},
 				opencode = {
 					cmd = { "opencode" },
 					-- HACK: https://github.com/sst/opencode/issues/445
@@ -105,6 +108,13 @@ return {
 				require("sidekick.cli").toggle({ name = "opencode", focus = true })
 			end,
 			desc = "Sidekick Toggle Opencode",
+		},
+		{
+			"<leader>ac",
+			function()
+				require("sidekick.cli").toggle({ name = "claude", focus = true })
+			end,
+			desc = "Sidekick Toggle Claude Code",
 		},
 		{
 			"<leader>aa",

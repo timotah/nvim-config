@@ -25,7 +25,7 @@ local function get_probe_dir()
 end
 
 local function get_angular_core_version()
-  if not project_root then
+  if not project_root or project_root == '?' then
     return ''
   end
 
@@ -34,9 +34,15 @@ local function get_angular_core_version()
     return ''
   end
 
-  local contents = io.open(package_json):read '*a'
-  local json = vim.json.decode(contents)
-  if not json.dependencies then
+  local f = io.open(package_json)
+  if not f then
+    return ''
+  end
+  local contents = f:read('*a')
+  f:close()
+
+  local ok, json = pcall(vim.json.decode, contents, { luanil = { object = true, array = true } })
+  if not ok or type(json) ~= 'table' or not json.dependencies then
     return ''
   end
 
