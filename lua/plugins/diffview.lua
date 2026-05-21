@@ -2,8 +2,8 @@ return {
   "sindrets/diffview.nvim",
   cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory", "DiffviewToggleFiles", "DiffviewFocusFiles" },
   keys = {
-    { "<leader>do", "<cmd>DiffviewOpen<cr>",            desc = "Diff working tree" },
-    { "<leader>dO", "<cmd>DiffviewOpen HEAD<cr>",        desc = "Diff against HEAD" },
+    { "<leader>do", "<cmd>DiffviewOpen<cr>",            desc = "Diff working tree against HEAD" },
+    { "<leader>dp", "<cmd>DiffviewOpen origin/main...HEAD<cr>",        desc = "Diff against HEAD - GH PR style" },
     { "<leader>dh", "<cmd>DiffviewFileHistory %<cr>",    desc = "File history (current file)" },
     { "<leader>dH", "<cmd>DiffviewFileHistory<cr>",      desc = "File history (repo)" },
     { "<leader>dx", "<cmd>DiffviewClose<cr>",            desc = "Close diffview" },
