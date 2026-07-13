@@ -1,3 +1,5 @@
+-- import any user commands in other utils here
+require("utils.reload_lsps")
 -- set initial neovim configs such as tab/spaces
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
@@ -20,12 +22,12 @@ vim.o.autoread = true
 
 
 -- SET KEYMAPS HERE
-
-vim.keymap.set("n", "<C-e>", "<cmd>Oil<CR>")
+vim.keymap.set('t', '<Esc>', '<C-\\><C-N>', { desc = 'Exit terminal mode' })
+vim.keymap.set("n", "<C-e>", "<cmd>Oil<CR>", { desc = "Open Oil" })
 -- ensures ctrl c works like esc in insert mode
-vim.keymap.set({ "i", "v" }, "<C-c>", "<Esc>")
+vim.keymap.set({ "i", "v" }, "<C-c>", "<Esc>", { desc = "Exit insert/visual mode" })
 -- allow for copying to sys clipboard
-vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Copy to system clipboard" })
 
 -- conform keymaps
 vim.keymap.set("n", "<leader>cf", function()

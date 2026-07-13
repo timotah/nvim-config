@@ -1,3 +1,6 @@
+local diff = require("utils.diff_pick_commit")
+
+
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -23,6 +26,8 @@ return {
 				{ section = "header" },
 				{ section = "keys", gap = 1, padding = 1 },
 				{ icon = "󰊢 ", key = "d", desc = "Diff Unstaged Changes", action = ":DiffviewOpen", padding = 1 },
+				{ icon = "󰘬 ", key = "p", desc = "Diff PR Changes", action = ":DiffviewOpen origin/main", padding = 1 },
+				{ icon = "󰜘 ", key = "r", desc = "Diff HEAD vs. a commit I pick", action = diff.diff_pick_commit, padding = 1 },
 				{ section = "startup" },
 			},
 		},
