@@ -15,13 +15,9 @@ return {
 			return ok and result or nil
 		end
 
-		local function attach_cmd(self)
-			if self.herdr_terminal_id then
-				return { cmd = { "herdr", "terminal", "attach", self.herdr_terminal_id } }
-			end
-		end
-
 		function Herdr:init()
+			-- external: the session lives in herdr, never in an nvim terminal window
+			self.external = true
 			self.is_running = function(s)
 				return s.herdr_pane_id and herdr_json({ "pane", "get", s.herdr_pane_id }) ~= nil
 			end
@@ -51,11 +47,11 @@ return {
 			end
 
 			Util.info(("Started **%s** in herdr workspace"):format(self.tool.name))
-			return attach_cmd(self)
+			-- return nothing: no terminal window is spawned for this session
 		end
 
 		function Herdr:attach()
-			return attach_cmd(self)
+			-- nothing to do; text is piped straight to the herdr pane
 		end
 
 		function Herdr:send(text)
@@ -103,6 +99,7 @@ return {
 										id = pane.pane_id,
 										cwd = cwd,
 										tool = tool,
+										external = true,
 										herdr_pane_id = pane.pane_id,
 										herdr_terminal_id = pane.terminal_id,
 										mux_session = pane.workspace_id,
@@ -151,58 +148,6 @@ return {
 				backend = "herdr",
 				enabled = true,
 			},
-			win = {
-				keys = {
-					prompt = { "<a-p>", "prompt", mode = "t", desc = "insert prompt or context" },
-					shift_enter = {
-						"<S-CR>",
-						function(terminal)
-							vim.api.nvim_chan_send(terminal.job, "\x1b[13;2u")
-						end,
-						mode = "t",
-						desc = "Send Shift+Enter to terminal application",
-					},
-					toggle_focus = {
-						"<c-a>",
-						function(terminal)
-							local mode = vim.fn.mode()
-
-							if mode == "t" then
-								-- We're in terminal mode, need to switch to another window
-								-- Note: wincmd("p") doesn't work from terminal mode keymaps,
-								-- so we manually find and switch to a non-terminal window
-
-								local current_win = vim.api.nvim_get_current_win()
-								local all_wins = vim.api.nvim_list_wins()
-
-								-- Find the first window that isn't the current terminal
-								local target_win = nil
-								for _, win in ipairs(all_wins) do
-									if win ~= current_win then
-										target_win = win
-										break
-									end
-								end
-
-								if target_win then
-									-- Exit terminal mode first
-									vim.cmd.stopinsert()
-
-									-- Schedule the window switch to happen after stopinsert completes
-									vim.schedule(function()
-										vim.api.nvim_set_current_win(target_win)
-									end)
-								end
-							else
-								-- Already in normal mode, use the standard blur method
-								terminal:blur()
-							end
-						end,
-						mode = { "n", "t" },
-						desc = "Return to editor",
-					},
-				},
-			},
 			tools = {
 				claude = {
 					cmd = { "claude", "--verbose", "--dangerously-skip-permissions" },
@@ -222,85 +167,43 @@ return {
 		},
 	},
 	keys = {
+		-- attach / detach (no nvim window is ever opened; the CLI lives in herdr)
 		{
-			"<tab>",
+			"<leader>ac",
 			function()
-				-- if there is a next edit, jump to it, otherwise apply it if any
-				if not require("sidekick").nes_jump_or_apply() then
-					return "<Tab>" -- fallback to normal tab
-				end
+				require("sidekick.cli").show({ name = "claude" })
 			end,
-			expr = true,
-			desc = "Goto/Apply Next Edit Suggestion",
-		},
-		{
-			"<c-a>",
-			function()
-				-- This keymap is for focusing the terminal from editor buffers
-				-- The reverse (terminal -> editor) is handled by sidekick's win.keys
-				require("sidekick.cli").focus()
-			end,
-			desc = "Sidekick Focus Terminal",
-			mode = { "n", "i", "x" }, -- Removed "t" mode since it's handled by sidekick
+			desc = "Sidekick Attach Claude Code",
 		},
 		{
 			"<leader>ao",
 			function()
-				require("sidekick.cli").toggle({ name = "opencode", focus = true })
+				require("sidekick.cli").show({ name = "opencode" })
 			end,
-			desc = "Sidekick Toggle Opencode",
-		},
-		{
-			"<leader>ac",
-			function()
-				require("sidekick.cli").toggle({ name = "claude", focus = true })
-			end,
-			desc = "Sidekick Toggle Claude Code",
-		},
-		{
-			"<leader>aa",
-			function()
-				require("sidekick.cli").toggle()
-			end,
-			desc = "Sidekick Toggle CLI",
+			desc = "Sidekick Attach Opencode",
 		},
 		{
 			"<leader>as",
 			function()
 				require("sidekick.cli").select()
 			end,
-			-- Or to select only installed tools:
-			-- require("sidekick.cli").select({ filter = { installed = true } })
-			desc = "Select CLI",
+			desc = "Sidekick Select CLI",
 		},
 		{
 			"<leader>ad",
 			function()
 				require("sidekick.cli").close()
 			end,
-			desc = "Detach a CLI Session",
+			desc = "Sidekick Detach CLI",
 		},
-		{
-			"<a-h>",
-			function()
-				require("sidekick.cli").hide()
-			end,
-			desc = "Hide a CLI Session",
-			mode = { "t" },
-		},
-		{
-			"<leader>ah",
-			function()
-				require("sidekick.cli").hide()
-			end,
-			desc = "Hide a CLI Session",
-		},
+
+		-- pipe context into the attached CLI's prompt (nothing is submitted)
 		{
 			"<leader>at",
 			function()
 				require("sidekick.cli").send({ msg = "{this}" })
 			end,
-			mode = { "x", "n" },
+			mode = { "n", "x" },
 			desc = "Send This",
 		},
 		{
@@ -319,12 +222,75 @@ return {
 			desc = "Send Visual Selection",
 		},
 		{
-			"<leader>ap",
+			"<leader>ab",
 			function()
-				require("sidekick.cli").prompt()
+				require("sidekick.cli").send({ msg = "{buffers}" })
+			end,
+			desc = "Send Open Buffers",
+		},
+		{
+			"<leader>aq",
+			function()
+				require("sidekick.cli").send({ msg = "{quickfix}" })
+			end,
+			desc = "Send Quickfix",
+		},
+
+		-- canned prompts, built up piece by piece
+		{
+			"<leader>pe",
+			function()
+				require("sidekick.cli").send({ prompt = "explain" })
 			end,
 			mode = { "n", "x" },
-			desc = "Sidekick Select Prompt",
+			desc = "Prompt: Explain",
+		},
+		{
+			"<leader>pf",
+			function()
+				require("sidekick.cli").send({ prompt = "fix" })
+			end,
+			mode = { "n", "x" },
+			desc = "Prompt: Fix",
+		},
+		{
+			"<leader>pr",
+			function()
+				require("sidekick.cli").send({ prompt = "review" })
+			end,
+			mode = { "n", "x" },
+			desc = "Prompt: Review",
+		},
+		{
+			"<leader>pt",
+			function()
+				require("sidekick.cli").send({ prompt = "tests" })
+			end,
+			mode = { "n", "x" },
+			desc = "Prompt: Tests",
+		},
+		{
+			"<leader>pd",
+			function()
+				require("sidekick.cli").send({ prompt = "diagnostics" })
+			end,
+			desc = "Prompt: Diagnostics",
+		},
+		{
+			"<leader>pc",
+			function()
+				require("sidekick.cli").send({ prompt = "changes" })
+			end,
+			desc = "Prompt: Review my changes",
+		},
+
+		-- send a bare newline to submit whatever has been built up
+		{
+			"<leader>a<cr>",
+			function()
+				require("sidekick.cli").send({ msg = "\n" })
+			end,
+			desc = "Submit built prompt",
 		},
 	},
 }
