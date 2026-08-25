@@ -2,7 +2,14 @@ local diff = require("utils.diff_pick_commit")
 
 return {
 	"sindrets/diffview.nvim",
-	cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+	cmd = {
+		"DiffviewOpen",
+		"DiffviewClose",
+		"DiffviewFileHistory",
+		"DiffviewToggleFiles",
+		"DiffviewFocusFiles",
+		"DiffviewRefresh",
+	},
 	keys = {
 		{ "<leader>do", "<cmd>DiffviewOpen<cr>", desc = "Diff working tree against HEAD" },
 		{ "<leader>dp", "<cmd>DiffviewOpen origin/main...HEAD<cr>", desc = "Diff against HEAD - GH PR style" },
@@ -11,6 +18,29 @@ return {
 		{ "<leader>dh", "<cmd>DiffviewFileHistory %<cr>", desc = "File history (current file)" },
 		{ "<leader>dH", "<cmd>DiffviewFileHistory<cr>", desc = "File history (repo)" },
 		{ "<leader>dx", "<cmd>DiffviewClose<cr>", desc = "Close diffview" },
+
+		{
+			-- diffview watches .git/index (watch_index) and refreshes on BufWritePost,
+			-- but nothing watches the working tree -- so files rewritten outside nvim
+			-- leave both the buffers and the panel stale. This resyncs all three layers.
+			"<leader>dR",
+			function()
+				vim.cmd("checktime") -- reload buffers whose on-disk copy changed
+				vim.cmd("DiffviewRefresh") -- re-stat panel entries from git
+
+				-- :diffupdate acts on the current window's diff group, so run it from
+				-- inside a diff window (the file panel isn't one). One call is enough.
+				for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+					if vim.wo[win].diff then
+						vim.api.nvim_win_call(win, function()
+							vim.cmd("diffupdate")
+						end)
+						break
+					end
+				end
+			end,
+			desc = "Refresh diff (reload changes from disk)",
+		},
 		-- visual mode: trace history of selected lines
 		{ "<leader>dv", ":'<,'>DiffviewFileHistory<cr>", desc = "Line history", mode = "v" },
 	},
