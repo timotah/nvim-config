@@ -21,7 +21,7 @@ vim.diagnostic.config({
   severity_sort = true, -- Sort by severity
 })
 
-vim.lsp.set_log_level("warn")
+vim.lsp.log.set_level("warn")
 
 -- Keymaps for diagnostics
 -- local opts = { noremap=true, silent=true }
