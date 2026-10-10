@@ -8,7 +8,7 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set colorcolumn=80")
 
 
-vim.cmd.colorscheme "gruvbox"
+vim.cmd.colorscheme "catppuccin-mocha"
 vim.opt.termguicolors = true
 -- any commands that you want to have a short to, add <leader>
 vim.g.mapleader = " "
